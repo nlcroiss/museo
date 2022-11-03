@@ -4,15 +4,21 @@ session_start();
 // Conexion a la Base de Datos Biblioteca 
 
  require_once "conexion.php";
- //$sql="SELECT nombre FROM categoria ORDER BY  idcategoriaboss";
 
- //$result=mysqli_query($conex,$sql);
+ if (isset($_POST['btnbuscar']) && $_POST['clavebuscada']!=''){
+                    //si el boton buscar manda algo se ejecuta esto
+    $clavebusqueda=$_POST['clavebuscada'];
 
-
+    $sql="SELECT * FROM inventariomuebles WHERE designacion like '%$clavebusqueda%' or nomdonante like '%$clavebusqueda%' or estadoconserv like '%$clavebusqueda%' or modoadquisicion like '%$clavebusqueda%' and activo=1 ORDER BY idmuebles";
+    //die($sql);
+    
+    $result=mysqli_query($conex,$sql);
+        }else{      
+            //si el boton buscar esta vacio se ejecuta esto
  $sql="SELECT * FROM inventariomuebles where activo=1 ORDER BY idmuebles";
 
- $result=mysqli_query($conex,$sql1);
-
+ $result=mysqli_query($conex,$sql);
+ }
  if (mysqli_num_rows($result)>0){
 
          
@@ -23,37 +29,30 @@ session_start();
                      // Conexion a la Base de Datos Biblioteca 
         
          
-                     require_once "fpaginado.php";
+                    //  require_once "fpaginado.php";
          
-                     $cantmax=0;
+                    //  $cantmax=0;
                     
                      // Se evalúa si se ha realizado clic en el botón Buscar y si 
                      // el valor o clave buscada es distinto de vacío 
                      
-                     if (isset($_POST['btnbuscar']) && $_POST['clavebuscada']!=''){
+                     
                     
-                         $clavebusqueda=$_POST['clavebuscada'];
-                    
-                         $sql="SELECT * FROM inventariomuebles WHERE designacion like '$clavebusqueda%' or nomdonante like '$clavebusqueda%' or datodescr like '$clavebusqueda%' or estadoconserv like '$clavebusqueda%' and activo=1";
-                         //die($sql);
-                         
-                         $result=mysqli_query($conex,$sql);
-                    
-                     }else{    
+                    //  }else{    
                     
                          //LLamada a funciones de Paginado
                     
-                         $cantmax=contar_registros($conex);
+                        //  $cantmax=contar_registros($conex);
                     
                          
-                           if (!isset($_GET['pg'])){
-                               $pag=0;
-                               $result=registros_porpagina($conex,$pag); 
-                           }else{
-                               $pag=$_GET['pg'];
-                               $result=registros_porpagina($conex,$pag);
-                           } 
-                     }
+                        //    if (!isset($_GET['pg'])){
+                        //        $pag=0;
+                        //        $result=registros_porpagina($conex,$pag); 
+                        //    }else{
+                        //        $pag=$_GET['pg'];
+                        //        $result=registros_porpagina($conex,$pag);
+                        //    } 
+                    //  }
                     
         ?>
                 
@@ -67,7 +66,7 @@ session_start();
             <?php 
                 if(isset($_GET['mensaje'])){
                     switch ($_GET['mensaje']) {
-                        case 'agregado':
+                            case 'agregado':
                             echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>".'Agregado exitosamente'."</strong></div></div>";
                             break;
                             case 'borrado':
@@ -75,6 +74,9 @@ session_start();
                                 break;
                             case 'edit':
                                 echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>".'Modificado exitosamente'."</strong></div></div>";
+                            break;
+                            case 'noencontrado':
+                                echo "<div class='text-center mt-4 mb-5'><div class='alert alert-danger' role='alert'><strong>".'Elemento no encontrado'."</strong></div></div>";
                             break;
                             }
                 }
@@ -86,11 +88,11 @@ session_start();
                   	<div class="input-group mt-2">
           					<input type="text" name="clavebuscada" class="form-control" value="<?php if (!empty($_POST['clavebuscada'])){ echo $_POST['clavebuscada']; }?>">
           					<button class="btn btn-outline-secondary btn-sm" type="submit" name="btnbuscar" id="btnbuscar" value="Buscar">Buscar</button>
-          					</div>
-				          </form>
+          			</div>
+				</form>
 
                 </div>
-                <div class="col-5">
+            <div class="col-5">
 
                 </div>
                     <div class="col-3">
@@ -165,7 +167,7 @@ session_start();
 
    
    <?php
-     }else header("location:agregarmuebles.php");
+     }else header("location:inventariomuebles.php?mensaje=noencontrado");
    ?>  
     
     </section>    

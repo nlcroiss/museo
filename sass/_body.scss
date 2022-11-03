@@ -1,0 +1,65 @@
+html{
+    height: 100%;
+    font-family: $font-principal;
+    font-size:$text-small;
+}
+
+body{
+    background-color: $fondo;
+    position: relative;
+    padding-bottom: 50px;
+    min-height: 100vh;
+}
+
+.encabezado{
+    background-color: $color-fondo-head;
+    color: $text-color;
+}
+
+.titulo__texto{
+    font-family: $font-titulo-principal;
+}
+.navbar, .navbar-light{
+    color: $text-color !important;
+}
+.titulo__parrafo{
+     font-family: $font-titulo-principal;
+    color: $color-titulo;
+    font-weight: bold;
+}
+
+.foto_home{
+    width: 100%;
+    height:auto;
+    box-shadow: 5px 5px 25px black;
+}
+
+i{
+    font-size: 24px;
+}
+ 
+.logo{
+    width: 10px;
+    height: 10px;    
+}
+
+.formulario{
+    background-color: rgb(212, 211, 209);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+
+.pie__pagina{
+    background-color: $color-secundario;
+    color:$text-color;
+    padding: 10px 0 10px 0;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: $font-titulo-principal;
+    font-size: $text-small;
+    text-align: center;
+}

@@ -5,7 +5,7 @@ session_start();
 require_once "conexion.php";
 
 
-     include "primero.php";
+include ("primero.php");
      
      include('header.php');
 

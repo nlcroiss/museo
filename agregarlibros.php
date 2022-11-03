@@ -5,7 +5,7 @@ session_start();
 require_once "conexion.php";
 $sql="SELECT * FROM categorialibro";
 $result=mysqli_query($conex,$sql);
-  include('encabezadohtml.php');
+  include('primero.php');
      include('header.php');
 
    ?>

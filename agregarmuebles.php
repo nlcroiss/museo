@@ -8,7 +8,7 @@ $result=mysqli_query($conex,$sql);
 
 
 
-    include "primero.php";
+    include ("primero.php");
      
     include('header.php');
 

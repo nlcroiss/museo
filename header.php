@@ -1,6 +1,6 @@
 <header>
      <!-- Encabezado -->       
-    <div class="container-fluid">
+    <div class="container-fluid encabezado">
         <div class="row">
 
     
@@ -11,14 +11,14 @@
             </div>
       <div class="col-11">
         
-      <h1 class="">Museo Ferroviario</h1>
-      <h2>San Cristobal</h2></div>
+      <h1 class="titulo__texto">Museo Ferroviario</h1>
+      <h2 class="titulo__texto">San Cristobal</h2></div>
       </div>
       </div>
       </div>
 
        <!-- Menú de Navegación -->  
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <nav class="navbar navbar-expand-md navbar-light bg-success">
       <div class="container-fluid">
     
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
