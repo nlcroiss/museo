@@ -77,7 +77,6 @@ session_start();
             if (isset($_SESSION['dniadmin']) || isset($_SESSION['dniencargado'])){
             ?>
                     <td><a class="me-3 btn btn-outline-success btn-sm " href="form-edit-cat2.php?id=<?php echo $fila ['idcategorias'];?>">Editar</a>
-                    <h1> </h1>
               
                     <a class="btn btn-outline-danger btn-sm" href="form-eliminar-cate2.php?id=<?php echo $fila ['idcategorias'];?>">Borrar</a></td>
 

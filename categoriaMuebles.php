@@ -14,23 +14,35 @@ session_start();
 
          
     include "primero.php";
- 
+
 
     include('header.php');
-        
-        ?>
+                ?>
 
       
     <section>
      
     <div class="container text-center ">
         <div class="text-center mt-5 mb-3"><h3>Categorias</h3></div>
-        <?php if(isset($_GET['mensaje']) && ($_GET['mensaje']=='ok')){echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>".'Categoria agregada exitosamente'."</strong></div></div>";}?>
+        <?php if(isset($_GET['mensaje'])) {
+                switch ($_GET['mensaje']) {
+                    case 'agregado':
+                        echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>".'Categoria agregada exitosamente'."</strong></div></div>";
+                        break;
+                    case 'edit':
+                        echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>".'Categoria modificada exitosamente'."</strong></div></div>";
+                        break; 
+                    case 'borrado':
+                        echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>".'Categoria borrada exitosamente'."</strong></div></div>";
+                        break;
+                }
+              }
+        ?>
         <table class="table table-striped table-hover">
             <div class="row">
                 <div class="col-9"></div>
                     <div class="col-3">
-                    <div class="btn btn-primary btn-sm "> <a class="text-decoration-none text-white" href="form-agregar-cat.php">Agregar</a></div>
+                    <div class="btn btn-primary btn-sm "> <a class="text-decoration-none text-white" href="form-agregar-cat2.php">Agregar</a></div>
                 </div>
             </div>
                 <thead>
@@ -64,10 +76,9 @@ session_start();
             <?php 
             if (isset($_SESSION['dniadmin']) || isset($_SESSION['dniencargado'])){
             ?>
-                    <td><a class="me-3 btn btn-outline-success btn-sm " href="form-agregar-cat.php?">Editar</a>
-                    <h1> </h1>
+                    <td><a class="me-3 btn btn-outline-success btn-sm " href="form-edit-cat2.php?id=<?php echo $fila ['idcategoriaboss'];?>">Editar</a>
               
-                    <a class="btn btn-outline-danger btn-sm" href="form-eliminar-muebles.php?id=<?php echo $fila ['idmuebles'];?>">Borrar</a></td>
+                    <a class="btn btn-outline-danger btn-sm" href="form-eliminar-cate2.php?id=<?php echo $fila ['idcategoriaboss'];?>">Borrar</a></td>
 
                 </tr>
                 

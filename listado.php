@@ -42,20 +42,6 @@ if (!isset($_SESSION['dniadmin'])){
              
              $result=mysqli_query($conex,$sql);
         
-         }else{    
-        
-             //LLamada a funciones de Paginado
-        
-             $cantmax=contar_registros($conex);
-        
-             
-               if (!isset($_GET['pg'])){
-                   $pag=0;
-                   $result=registros_porpagina($conex,$pag); 
-               }else{
-                   $pag=$_GET['pg'];
-                   $result=registros_porpagina($conex,$pag);
-               } 
          }
         
         ?>

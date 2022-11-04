@@ -9,7 +9,7 @@ session_start();
                     //si el boton buscar manda algo se ejecuta esto
     $clavebusqueda=$_POST['clavebuscada'];
 
-    $sql="SELECT * FROM inventariomuebles WHERE designacion like '%$clavebusqueda%' or nomdonante like '%$clavebusqueda%' or estadoconserv like '%$clavebusqueda%' or modoadquisicion like '%$clavebusqueda%' and activo=1 ORDER BY idmuebles";
+    $sql="SELECT * FROM inventariomuebles WHERE activo=1 and designacion like '%$clavebusqueda%' or nomdonante like '%$clavebusqueda%' or estadoconserv like '%$clavebusqueda%' or modoadquisicion like '%$clavebusqueda%' ORDER BY idmuebles";
     //die($sql);
     
     $result=mysqli_query($conex,$sql);
@@ -145,17 +145,16 @@ session_start();
             <?php 
             if (isset($_SESSION['dniadmin']) || isset($_SESSION['dniencargado'])){
             ?>
-                    <td><a class="me-3 btn btn-outline-success btn-sm " href="form-edit-muebles.php?id=<?php echo $fila ['idmuebles'];?>">Editar</a>
-                    <h1> </h1>
+                                
+                    
+                    <td><a class="me-3 btn btn-outline-success btn-sm " href="form-edit-muebles.php?id=<?php echo $fila ['idmuebles'];?>"><i class="fa fa-pencil fa-1x" aria-hidden="true"></i></a>
               
-                    <a class="btn btn-outline-danger btn-sm" href="form-eliminar-muebles.php?id=<?php echo $fila ['idmuebles'];?>">Borrar</a></td>
+                    <a class="btn btn-outline-danger btn-sm" href="form-eliminar-muebles.php?id=<?php echo $fila ['idmuebles'];?>"><i class="fa fa-trash fa-1x" aria-hidden="true"></i></a></td>
 
                 </tr>
                 
             <?php 
             }
-            ?>
-            <?php
             }
             ?>         
             

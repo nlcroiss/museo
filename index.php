@@ -15,7 +15,7 @@ include("primero.php");
 
    
    
-  <section>
+  <section >
    
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -58,7 +58,7 @@ include("primero.php");
 
   </section>
   <?php
-    include('footer2.php');
+    include('index_seccion2.php');
   ?>
 
   <?php

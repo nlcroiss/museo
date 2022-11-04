@@ -1,13 +1,10 @@
-<?php
-include('primero.php');
-?>
-  <br>
-  <h3 class="text-warning mb-3 text-center">¿Quieres ir? 
-</h3>
+
+  
     
 
-    <section class="bg-light text-center info-sections">
-          <div class="container">
+    <section class="">
+    <h3 class="mt-3 text-center">¿Quieres ir?</h3>
+          <div class="container mt-4">
             <div class="col-md-12 mx-auto">	
                 <div class="row">
                   <div class="col-md-4 col-xl-4">
@@ -33,18 +30,5 @@ include('primero.php');
 			<p class="mx-auto small"><em><b>Recuerda:</b> ------------------------------- </em></p>
 		</div>
     </section>
-    <section>
-    <i class="fa fa-camera-retro fa-lg"></i> fa-lg
-<i class="fa fa-camera-retro fa-2x"></i> fa-2x
-<i class="fa fa-camera-retro fa-3x"></i> fa-3x
-<i class="fa fa-camera-retro fa-4x"></i> fa-4x
-<i class="fa fa-camera-retro fa-5x"></i> fa-5x
-    </section>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    
-  </body>
-</html>
 
 

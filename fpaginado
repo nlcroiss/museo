@@ -1,0 +1,21 @@
+<?php
+
+function contar_registros($conex, $nom, $tipoid){
+
+   $sql="SELECT count($tipoid) AS cantidad_total FROM $nom";
+   $result=mysqli_query($conex,$sql);
+   $fila=mysqli_fetch_assoc($result);
+   return $fila['cantidad_total'];
+}
+
+
+
+function registros_porpagina($conex,$nom,$pag){
+
+    $sql="SELECT * FROM $nom LIMIT ".($pag*2).",2";
+    $result=mysqli_query($conex, $sql);
+    return $result;
+}
+
+
+?>

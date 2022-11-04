@@ -49,6 +49,15 @@ body {
   color: #ffffff !important;
 }
 
+.seccion__index {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(131, 58, 180);
+  background-image: linear-gradient(90deg, rgb(131, 58, 180) 0%, rgba(253, 29, 29, 0.0578431202) 50%, rgb(252, 176, 69) 100%), url(../imagenes/ferro1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .titulo__parrafo {
   font-family: "Kanit", sans-serif;
   color: #05758b;

@@ -7,11 +7,21 @@ session_start();
 // Conexion a la Base de Datos Biblioteca 
 
  require_once "conexion.php";
+ require_once "paginado.php";
+ if (isset($_POST['btnbuscar']) && $_POST['clavebuscada']!=''){
+    //si el boton buscar manda algo se ejecuta esto
+$clavebusqueda=$_POST['clavebuscada'];
+
+$sql="SELECT * FROM inventariolibros WHERE autor like '%$clavebusqueda%' or nomdonante like '%$clavebusqueda%' or modoadquisicion like '%$clavebusqueda%' and activo=1 ORDER BY idlibro";
+//die($sql);
+
+$result=mysqli_query($conex,$sql);
+}else{
 
  $sql="SELECT * FROM inventariolibros where activo=1 ORDER BY idlibro";
 
  $result=mysqli_query($conex,$sql);
-
+}
  if (mysqli_num_rows($result)>0){
 
          
@@ -40,13 +50,26 @@ session_start();
                         case 'edit':
                              echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>".'Libro modificado exitosamente'."</strong></div></div>";
                         break;
+                        case 'noencontrado':
+                            echo "<div class='text-center mt-4 mb-5'><div class='alert alert-danger' role='alert'><strong>".'Libro no encontrado'."</strong></div></div>";
+                       break;
                         }
              }
             ?>
 
         <table class="table table-striped table-hover">
             <div class="row">
-                <div class="col-9"></div>
+            <div class="row">
+                <div class="col-4">
+                <form action="inventariolibros.php" method="POST">	
+                  	<div class="input-group mt-2">
+          					<input type="text" name="clavebuscada" class="form-control" value="<?php if (!empty($_POST['clavebuscada'])){ echo $_POST['clavebuscada']; }?>">
+          					<button class="btn btn-outline-secondary btn-sm" type="submit" name="btnbuscar" id="btnbuscar" value="Buscar">Buscar</button>
+          			</div>
+				</form>
+
+                </div>
+                <div class="col-5"></div>
                     <div class="col-3">
                     <div class="btn btn-primary btn-sm "> <a class="text-decoration-none text-white" href="agregarlibros.php">Agregar</a></div>
                 </div>
@@ -103,12 +126,14 @@ session_start();
             <?php 
             if (isset($_SESSION['dniadmin']) || isset($_SESSION['dniencargado'])){
             ?>
-                    <td><a class="me-3 btn btn-outline-success btn-sm" href="form-edit-libros.php?id=<?php echo $fila ['idlibro'];?>">Editar</a>
-                    <h1> </h1>
-              
-                    <a class="btn btn-outline-danger btn-sm" href="form-eliminar-libros.php?id=<?php echo $fila ['idlibro'];?>">Borrar</a></td>
+                    <td><a class="me-3 btn btn-outline-success btn-sm" href="form-edit-libros.php?id=<?php echo $fila ['idlibro'];?>"><i class="fa fa-pencil fa-1x" aria-hidden="true"></i></a>
+
+
+                    <a class="btn btn-outline-danger btn-sm" href="form-eliminar-libros.php?id=<?php echo $fila ['idlibro'];?>"><i class="fa fa-trash fa-1x" aria-hidden="true"></i>
+</a></td>
+</tr>
             <?php } ?>
-                </tr>
+                
                 
 
             <?php
@@ -121,14 +146,17 @@ session_start();
 
     </table></div>
 
-   
    <?php
-     }else header("location:agregarlibros.php");
+    $nom='inventariolibros';
+    $id='idlibro';
+    mostrarPaginado($conex, $nom, $id);
+     }else header("location:inventariolibros.php?mensaje=noencontrado");
    ?>  
     
     </section>    
 
     <?php
+  
 
     include('footer.php');
 
