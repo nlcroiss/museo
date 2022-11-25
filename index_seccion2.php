@@ -3,7 +3,7 @@
     
 
     <section class="">
-    <h3 class="mt-3 text-center">¿Quieres ir?</h3>
+    <h3 class="display-5 mt-3 text-center">¿Quieres ir?</h3>
           <div class="container mt-4">
             <div class="col-md-12 mx-auto">	
                 <div class="row">
@@ -26,8 +26,10 @@
             </div>
           </div>
           <div class="row">
-    	<div class="col-md-8 col-lg-8 col-xl-8 mx-auto mt-5 ">
-			<p class="mx-auto small"><em><b>Recuerda:</b> ------------------------------- </em></p>
+    	<div class="col-12 mt-5 ">
+
+      <h3 class="display-5 bg-danger text-light text-center"> - Sitio en Contrucción - </h3>
+		
 		</div>
     </section>
 

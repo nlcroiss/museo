@@ -4,12 +4,12 @@
         <div class="row">
 
     
-          <div class="col-1 logo">
-            <div class="my-3 ms-3">
-              <!-- <a href="index.php"><img src="./imagenes/logomuseo.png" alt="logo"  id="img1"></a> -->
+          <div class="col-3 logo">
+            <div class="">
+              <a href="index.php"><img src="./imagenes/logomuseo.png" alt="logo"  id="img1"></a>
         </div>
             </div>
-      <div class="col-11">
+      <div class="col-9">
         
       <h1 class="titulo__texto">Museo Ferroviario</h1>
       <h2 class="titulo__texto">San Cristobal</h2></div>
@@ -18,7 +18,7 @@
       </div>
 
        <!-- Menú de Navegación -->  
-      <nav class="navbar navbar-expand-md navbar-light bg-success">
+      <nav class="navbar navbar-expand-md navbar-dark bg-success">
       <div class="container-fluid">
     
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item pt-1">
-          <a class="nav-link" href="inventarioGeneral.php">Inventario</a>
+          <a class="nav-link" href="inventarioGeneral.php">Listados</a>
         </li>
 
        </ul>

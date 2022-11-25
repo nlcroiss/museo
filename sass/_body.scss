@@ -19,17 +19,72 @@ body{
 .titulo__texto{
     font-family: $font-titulo-principal;
 }
-.navbar, .navbar-light{
-    color: $text-color !important;
+
+.navbar{
+
+    background-color: $color-secundario;
+    color: $text-color ; 
+
+  
+
+     
+   .nav-link{
+      position: relative;
+      overflow: hidden;
+       color: $text-color !important; 
+    
+
+//        &:hover{
+        
+//            background-color:$color-fondo-head;
+//            color: $text-color; 
+        
+//         }
+
+
+        &:before,
+        &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: $text-color;
+        transition: left .8s;
+        }
+        &:hover:before {
+        left: 0;
+        }
+        &:after {
+        top: auto;
+        bottom: 0;
+        left: auto;
+        right: -100%;
+        background: $text-color;
+        transition: right .8s;
+        }
+        &:hover:after {
+        right: 0;
+        }
+   
+   }
 }
 
+
+// .navbar, .navbar-light{
+//     color: $text-color !important;
+// }
+
 .seccion__index{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background: rgb(131,58,180);
-    background-image: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.057843120158219574) 50%, rgba(252,176,69,1) 100%), url(../imagenes/ferro1.jpg);
+    background-image: url("../imagenes/ferro1.jpeg");
+    // background: rgb(131,58,180);
+    // background-image: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.057843120158219574) 50%, rgba(252,176,69,1) 100%), url("../imagenes/ferro1.jpeg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
+    background-position: center center;
 }
 .titulo__parrafo{
      font-family: $font-titulo-principal;
@@ -48,13 +103,33 @@ i{
 }
  
 .logo{
-    width: 10px;
-    height: 10px;    
+    width: 100px;
+    height: 100px; 
+    margin-top: 10px;
 }
 
+.placa{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 30%;
+    background-color: #1987548c;
+}
+
+.placa__texto{
+    font-family: $font-titulo-principal;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #000;
+    margin: 20px 0 auto;
+    text-shadow: 8px 8px 15px #fff;
+}
+
+
 .formulario{
-    background-color: rgb(212, 211, 209);
-    margin: 20px;
+    background-color: #1987548c;
+    margin: 150px auto;
     padding: 20px;
     border-radius: 20px;
     
